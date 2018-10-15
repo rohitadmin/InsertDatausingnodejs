@@ -8,6 +8,18 @@ router.get('/', function(req, res, next) {
 });
 
 
+//view data
+router.get('/viewstudent', function(req, res, next) {
+  StudentData.find((err, studentsData) => {
+    if(err) throw err;
+    res.render('index', {
+      studentsData
+    });
+});
+});
+
+
+//insert data
 router.post('/insert', function(req,res,next){
   var firstname = req.body.firstname;
   var lastname = req.body.lastname;

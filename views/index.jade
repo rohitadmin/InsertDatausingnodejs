@@ -15,3 +15,23 @@ block content
     label Email:
     input.form-control(type='email', placeholder='Enter Email' name='email')
     input.btn.btn-primary(type='submit', name=submit, value='Insert')
+    div.row
+    div.col-sm-12
+     h1 View Student Detail       
+     #[a.btn.btn-info(href="/viewstudent") view Student]
+     div.jumbotron
+      table.table.table-dark.table-striped
+       thead
+         tr
+         th ID 
+         th First Name
+         th Last Name
+         th Email
+       tbody
+        if studentsData
+         each results, i in studentsData
+          tr
+          td #{results.id}
+          td #{results.firstname}
+          td #{results.lastname}
+          td #{results.email}
