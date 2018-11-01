@@ -18,6 +18,35 @@ router.get('/viewstudent', function(req, res, next) {
 });
 });
 
+//get student id
+// router.get('/Students/:id', function(req, res) {
+//   var id = req.params.id;
+//   if(!ObjectsID.is valid(id)){
+//     return res.status(404).send();
+//   }
+//   StudentData.findById(id).then((studentsData) => {
+//     if(!studentsData)
+//     {
+//       return res.status(404).send();
+//     }
+//     res.render('index', {
+//       studentsData
+//     });
+
+// });
+// });
+
+
+//Delete data
+router.delete('/delete/:id', function(req, res) {
+  var id = req.paramas.id;
+  StudentData.findByIdAndRemove(id, (err) => {
+    if(err) throw err;
+    console.log('not delete');
+});
+  res.redirect('/');
+});
+
 
 //insert data
 router.post('/insert', function(req,res,next){

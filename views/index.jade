@@ -21,17 +21,19 @@ block content
      #[a.btn.btn-info(href="/viewstudent") view Student]
      div.jumbotron
       table.table.table-dark.table-striped
-       thead
-         tr
-         th ID 
-         th First Name
-         th Last Name
-         th Email
-       tbody
-        if studentsData
-         each results, i in studentsData
+        thead
           tr
-          td #{results.id}
-          td #{results.firstname}
-          td #{results.lastname}
-          td #{results.email}
+          th ID 
+          th First Name
+          th Last Name
+          th Email
+          th Action
+        tbody
+         if studentsData
+          each results, i in studentsData
+           tr
+           td #{results.id}
+           td #{results.firstname}
+           td #{results.lastname}
+           td #{results.email}
+           td #[a.delete(href="/delete/" + results.id) Delete]
